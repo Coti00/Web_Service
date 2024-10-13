@@ -5,11 +5,12 @@ import styled from 'styled-components';
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const MenuContainer = styled.div`
-    
-`
+    height: 100vh; /* 뷰포트 전체 높이 */
+    border-right: 1px solid black;
+`;
 
 const MenuWrapper = styled.ul`
-    height: 100%;
+    height: 100%; /* 부모 요소 높이에 맞춤 */
     width: 50px;
     border-right: 1px solid black;
     display: flex;
@@ -18,33 +19,31 @@ const MenuWrapper = styled.ul`
     justify-content: center;
     margin: 0;
     padding: 0;
-`
+`;
 
 const Menulist = styled.li`
     list-style: none;
     color: black;
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
     padding: 0;
-`
+`;
+
 const Hamburger = styled(GiHamburgerMenu)`
     padding: 10px;
     border-radius: 50%;
-    &:hover{
+    &:hover {
         background: gray;
     }
-`
+`;
 
 const Menu = () => {
-    return(
+    return (
         <MenuContainer>
             <MenuWrapper>
-                <Menulist><Hamburger/></Menulist>
-                <Menulist>test</Menulist>
-                <Menulist>page</Menulist>
-                <Menulist>hello</Menulist>
+                <Menulist><Hamburger /></Menulist>
             </MenuWrapper>
         </MenuContainer>
     );
 };
 
-export default Menu
+export default Menu;
