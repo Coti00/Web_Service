@@ -87,7 +87,7 @@ const Ranking = () => {
         <Wrapper>
             <TitleWrapper>
                 <Crown/>
-                <Title>맛집 랭킹</Title>
+                <Title>맛집 랭킹 Top3</Title>
             </TitleWrapper>
             <Container>
                 <ContentWrapper>
