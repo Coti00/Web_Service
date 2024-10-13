@@ -12,7 +12,7 @@ const MenuContainer = styled.div`
 const MenuWrapper = styled.ul`
     height: 100%; /* 부모 요소 높이에 맞춤 */
     width: 50px;
-    border-right: 1px solid black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     text-align: center;
