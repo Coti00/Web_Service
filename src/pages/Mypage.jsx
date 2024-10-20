@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Menu from '../components/Menu.jsx';
 import avatar from '../img/test.png'
+import { FaAngleRight } from "react-icons/fa6";
 
 const Container = styled.div`
     width: auto;
@@ -10,17 +11,20 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    margin: 20px 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
 `
 
 const Info = styled.div`
-    width: calc(40%);
+    width: calc(80%);
     display: flex;
     flex-direction: row;
     margin: 0;
     padding: 0;
     border-bottom: 1px solid gray;
     justify-content: center;
+    margin-top: 40px;
 `
 
 const Avatar = styled.img`
@@ -51,7 +55,7 @@ const Quit = styled.p`
 `
 
 const Activity = styled.div`
-    width: calc(40%);
+    width: calc(80%);
     display: flex;
     flex-direction: row;
     margin: 0;
@@ -83,6 +87,48 @@ const ActivityCount = styled.p`
     margin-top: 10px;
 `
 
+const SubContainer = styled.div`
+    width: calc(80%);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+`
+
+const SubWrapper = styled.div`
+    align-items: center;
+    width: calc(80%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    &:hover{
+        cursor: pointer;
+        color: gray;
+        border-bottom: 1px solid gray;
+    }
+`
+
+const SubTitle = styled.p`
+    margin: 0;
+    padding: 0;
+    margin-left: 30px;
+    font: bold 14px 'arial';
+`
+
+const Right = styled(FaAngleRight)`
+    margin: 0;
+    padding: 0;
+    margin-right: 30px;
+    padding-top: 2px;
+`
 
 const Mypage = () => {
     return(
@@ -105,6 +151,16 @@ const Mypage = () => {
                         <ActivityCount>0</ActivityCount>
                     </ActivityContent>
                 </Activity>
+                <SubContainer>
+                    <SubWrapper>
+                        <SubTitle>내가 등록한 맛집</SubTitle>
+                        <Right/>
+                    </SubWrapper>
+                    <SubWrapper>
+                        <SubTitle>내가 작성한 리뷰</SubTitle>
+                        <Right/>
+                    </SubWrapper>
+                </SubContainer>
                 <Quit>회원탈퇴</Quit>
             </Container>
         </>
