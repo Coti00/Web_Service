@@ -9,10 +9,22 @@ const MenuWrapper = styled.div`
     width: 100%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 0;
     padding: 0;
 `;
+
+const Logo = styled.div`
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+    font: bold 20px 'arial';
+    line-height: 40px;
+    &:hover{
+        color: gray;
+        cursor: pointer;
+    }
+`
 
 const MenuIcon = styled.div`
     list-style: none;
@@ -83,10 +95,15 @@ const Avatar = styled.img`
 
 const Menu = () => {
     const [menustate, setmenustate] = useState(false);
+    const mainpage= useNavigate();
     const mypage = useNavigate();
     const mybest = useNavigate();
     const ranking = useNavigate();
     const logout = useNavigate();
+
+    const gomain = () => {
+        mainpage('/main')
+    }
 
     const onClick = () =>{
         setmenustate(!menustate);
@@ -112,6 +129,7 @@ const Menu = () => {
     return (
         <>
             <MenuWrapper>
+                <Logo onClick={gomain}>전맛알</Logo>
                 <MenuIcon onClick={onClick}><Hamburger /></MenuIcon>
             </MenuWrapper>
             {menustate ? <Menulist>
