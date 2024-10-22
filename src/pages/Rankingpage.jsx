@@ -36,7 +36,7 @@ const MenuName = styled.li`
     font: bold 20px 'arial';
     margin: 10px 0;
     padding: 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid ${({ isSelected }) => (isSelected ? 'pink' : 'transparent')}; 
     &:hover{
         border-bottom: 2px solid pink;
     }
@@ -60,11 +60,11 @@ const Rankingpage = () => {
                 <Title>테마별 랭킹 TOP 10</Title>
                 <MainWrapper>
                     <MenuWrapper>
-                        <MenuName onClick={() => handleClick(0)}>한 식</MenuName>
-                        <MenuName onClick={() => handleClick(1)}>중 식</MenuName>
-                        <MenuName onClick={() => handleClick(2)}>양 식</MenuName>
-                        <MenuName onClick={() => handleClick(3)}>패스트푸드</MenuName>
-                        <MenuName onClick={() => handleClick(4)}>일 식</MenuName>
+                        <MenuName isSelected = {selectedMenu === 0} onClick={() => handleClick(0)}>한 식</MenuName>
+                        <MenuName isSelected = {selectedMenu === 1}  onClick={() => handleClick(1)}>중 식</MenuName>
+                        <MenuName isSelected = {selectedMenu === 2}  onClick={() => handleClick(2)}>양 식</MenuName>
+                        <MenuName isSelected = {selectedMenu === 3}  onClick={() => handleClick(3)}>패스트푸드</MenuName>
+                        <MenuName isSelected = {selectedMenu === 4}  onClick={() => handleClick(4)}>일 식</MenuName>
                     </MenuWrapper>
                     <ContentWrapper>
                         {selectedMenu === 0 ? <p>한식</p> : null}
