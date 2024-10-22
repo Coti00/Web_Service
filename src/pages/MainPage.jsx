@@ -1,14 +1,14 @@
-import React,{useEffect} from "react";
-import styled from "styled-components";
+import React from "react";
 import Menu from "../components/Menu";
 import Ranking from "../components/Ranking";
+import KaKaoMap from "../components/KaKaoMap";
+
 
 const MainPage = () => {
-
     return(
         <>
             <Menu/>
-            <div id="map" style={{width:'500px' ,height:'400px'}}></div>
+            <KaKaoMap/>
             <Ranking></Ranking>
         </>
     );

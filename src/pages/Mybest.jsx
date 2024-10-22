@@ -1,6 +1,8 @@
+import KaKaoMap from "../components/KaKaoMap";
+
 const Mybest = () => {
     return(
-        <p>Mybest</p>
+        <KaKaoMap/>
     );
 };
 
