@@ -5,10 +5,10 @@ import Ranking from "./Ranking";
 const KaKaoMap = () => {
     return (
         <>
-            <Map center={{ lat: 33.5563, lng: 126.79581 }} style={{ width: "100%", height: "750px" }}>
-                <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
+            <Map center={{ lat: 35.8467404, lng: 127.1294235 }} style={{ width: "100%", height: "750px" }}>
+                {/* <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
                     <div style={{color:"#000"}}>Hello World!</div>
-                </MapMarker>
+                </MapMarker> */}
             </Map>
             <Ranking/>
         </>

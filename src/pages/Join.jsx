@@ -62,7 +62,7 @@ const InputWrapper = styled.div`
 const Input = styled.input`
     border: none;
     width: 400px;
-    height: 50px;
+    height: 40px;
     border-radius: 15px;
     margin: 0;
     padding: 0;
@@ -111,14 +111,57 @@ const LoginButton = styled.p`
         cursor: pointer;
     }
 `
+const CertiButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+    width: 700px;
+`
+
+const CertiButton = styled.button`
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    border-radius: 15px;
+    color: white;
+    background: #363535;
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.15), inset 3px 3px 15px rgba(0, 0, 0, 0.15);
+    border: none;
+    font: bold 15px 'arial';
+    &:hover{
+        background: #979595;
+    }
+`
+
+const CertiInput = styled.input`
+    border: none;
+    width: 290px;
+    height: 40px;
+    border-radius: 15px;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    font: 500 15px 'arial';
+    margin-right: 10px;
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.15), inset 3px 3px 15px rgba(0, 0, 0, 0.15);
+    &:focus {
+    border: none; 
+    outline: none; 
+    }
+`
 
 const Join = ({isDarkMode, themeClick}) =>{
     const Firstfoucs = useRef(null);
     const Loginnavigate = useNavigate();
     const [pass, setpass] = useState("");
     const [repass, setrepass] = useState("");
-    const [id,setid] = useState("");
+    const [email,setemail] = useState("");
     const [nickname, setnickname] = useState("");
+    const [certi,setcerti] = useState("");
     const MainNavigate = useNavigate();
 
     useEffect(() => {
@@ -140,7 +183,8 @@ const Join = ({isDarkMode, themeClick}) =>{
     }
 
     const passconfirm = (pass && repass) && (pass === repass);
-    const buttonactive = id && nickname && passconfirm;
+    const buttonactive = email && nickname && passconfirm && certi; 
+// 인증 버튼 눌렀을때 이증 성공시 주는 값 추가하기
 
     return(
         <JoinContainer theme={isDarkMode ? darkTheme : lightTheme}>
@@ -148,11 +192,14 @@ const Join = ({isDarkMode, themeClick}) =>{
             <JoinForm onSubmit = {handleSubmit}>
                 <Title>회원가입</Title>
                 <NameWrapper>
-                    <Name>아이디</Name>
+                    <Name>이메일</Name>
                 </NameWrapper>
-                <InputWrapper>
-                    <Input placeholder="사용할 아이디 입력" type="text" ref={Firstfoucs} value={id} onChange={(e) => setid(e.target.value)}></Input>
-                </InputWrapper>
+                <CertiButtonWrapper>
+                    <CertiInput placeholder="이메일을 입력해주세요" type="email" value={email} onChange = {(e) => setemail(e.target.value)}/><CertiButton>인 증</CertiButton>
+                </CertiButtonWrapper>
+                <CertiButtonWrapper>
+                    <CertiInput placeholder="인증번호를 입력해주세요" type="text" value={certi} onChange={(e) => setcerti(e.target.value)}/><CertiButton>확 인</CertiButton>
+                </CertiButtonWrapper>
                 <NameWrapper>
                     <Name>닉네임</Name>
                 </NameWrapper>

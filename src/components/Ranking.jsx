@@ -38,6 +38,7 @@ const Title = styled.p`
     padding: 0;
     margin-left: 5px;
     margin-bottom: 10px;
+    color: #e13955;
 `
 
 const Crown = styled(FaCrown)`
@@ -102,7 +103,7 @@ const SubContent =styled.p`
 `
 
 const Down = styled(FaCaretDown)`
-    color: black;
+    color: #e13955;
     width: 20px;
     height: 20px;
     margin: 0;
@@ -111,7 +112,7 @@ const Down = styled(FaCaretDown)`
 `
 
 const Up = styled(FaCaretUp)`
-    color: black;
+    color: #e13955;
     width: 20px;
     height: 20px;
     margin: 0;
@@ -123,6 +124,7 @@ const P = styled.p`
     margin: 0;
     padding: 0;
     font: bold 13px 'arial';
+    color: #e13955;
 `
 
 const ButtonWrapper = styled.div`

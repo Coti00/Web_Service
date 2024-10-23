@@ -61,7 +61,7 @@ const InputWrapper = styled.div`
 const Input =styled.input`
     border: none;
     width: 400px;
-    height: 50px;
+    height: 40px;
     border-radius: 15px;
     margin: 0;
     padding: 0;
@@ -117,7 +117,7 @@ const Login = ({isDarkMode, themeClick}) => {
     const Firstfoucs = useRef(null);
     const Joinnavigate = useNavigate();
     const Loginnavigate = useNavigate();
-    const [id, setid] = useState("");
+    const [email, setemail] = useState("");
     const [pass, setpass] = useState("");
 
     useEffect(() => {
@@ -138,7 +138,7 @@ const Login = ({isDarkMode, themeClick}) => {
         }
     };
     
-    const loginactive = id && pass;
+    const loginactive = email && pass;
 
     return(
         <LoginWrapper theme = {isDarkMode ? darkTheme : lightTheme}>
@@ -146,10 +146,10 @@ const Login = ({isDarkMode, themeClick}) => {
             <LoginForm onSubmit={handleSubmit}>
                 <Title>로그인</Title>
                 <NameWrapper>
-                    <Name>아이디</Name>
+                    <Name>이메일</Name>
                 </NameWrapper>
                 <InputWrapper>  
-                    <Input type="text" placeholder="아이디를 입력해주세요" ref={Firstfoucs} value={id} onChange={(e) => setid(e.target.value)}/>
+                    <Input type="email" placeholder="이메일을 입력해주세요" ref={Firstfoucs} value={email} onChange={(e) => setemail(e.target.value)}/>
                 </InputWrapper>
                 <NameWrapper>
                     <Name>비밀번호</Name>
