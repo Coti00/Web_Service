@@ -41,11 +41,11 @@ const Menuitem = styled.div`
     margin: 0;
     padding: 0;
     margin: 0 auto;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     &:hover{
         cursor: pointer;
         color: #e13955;
-        border-bottom: 1px solid #e13955;
+        border-bottom: 2px solid #e13955;
     }
 `
 

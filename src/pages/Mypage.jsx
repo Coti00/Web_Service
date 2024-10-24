@@ -13,7 +13,7 @@ const Container = styled.div`
     align-items: center;
     margin: 20px 300px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
-    border-radius: 15px;
+    border-radius: 5px;
 `
 
 const Info = styled.div`
@@ -51,7 +51,10 @@ const Welcome = styled.p`
 
 const Quit = styled.p`
     font: 800 14px 'arial';
-    color: red;
+    color: #e13955;
+    &:hover{
+        color: gray;
+    }
 `
 
 const Activity = styled.div`
@@ -74,9 +77,10 @@ const ActivityContent = styled.div`
 const ActivityTitle = styled.p`
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid #e13955;
     padding-bottom: 5px;
     font: bold 20px 'arial';
+    color: #e13955;
 `
 
 const ActivityCount = styled.p`
@@ -109,6 +113,7 @@ const SubWrapper = styled.div`
     margin-top: 20px;
     border-bottom: 1px solid gray;
     padding-bottom: 10px;
+    color: #e13955;
     &:hover{
         cursor: pointer;
         color: gray;

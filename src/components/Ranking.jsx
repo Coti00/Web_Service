@@ -82,17 +82,18 @@ const Img = styled.img`
     width: 100%;
     height: auto;
 `
-const Content = styled.p`
+const Name = styled.p`
     font: bold 17px 'arial';
     height: auto;
     margin: 5px 0;
     padding: 0;
+    color: #e13955;
     @media screen and (max-width: 768px) {
         font-size: 14px;
         height: auto;
     }
 `
-const SubContent =styled.p`
+const Categories =styled.p`
     font: 500 13px 'arial';
     margin: 0;
     padding: 0;
@@ -161,18 +162,18 @@ const Ranking = () => {
             <Container>
                 <ContentWrapper>
                     <Img src = {img}/>
-                    <Content>TEST</Content>
-                    <SubContent>간단한 소개</SubContent>
+                    <Name>TEST</Name>
+                    <Categories>간단한 소개</Categories>
                 </ContentWrapper>
                 <ContentWrapper>
                     <Img src = {img}/>
-                    <Content>TEST</Content>
-                    <SubContent>간단한 소개</SubContent>
+                    <Name>TEST</Name>
+                    <Categories>간단한 소개</Categories>
                 </ContentWrapper>
                 <ContentWrapper>
                     <Img src = {img}/>
-                    <Content>TEST</Content>
-                    <SubContent>간단한 소개</SubContent>
+                    <Name>TEST</Name>
+                    <Categories>간단한 소개</Categories>
                 </ContentWrapper>
             </Container>
             </>:<></>}

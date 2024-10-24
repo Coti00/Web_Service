@@ -4,7 +4,7 @@ import Menu from '../components/Menu.jsx';
 import { GiKnifeFork } from "react-icons/gi";
 import { FaCaretDown } from "react-icons/fa";
 import { FiPlusCircle } from "react-icons/fi";
-import img from '../img/test.png';
+import mainImgUrl from '../img/test.png';
 
 const Container = styled.div`
     margin: 0 200px;
@@ -30,6 +30,7 @@ const Title = styled.p`
     margin: 0;
     padding: 0;
     font: bold 40px 'arial';
+    color: #e13955;
 `;
 
 const TitleIcon = styled(GiKnifeFork)`
@@ -47,7 +48,7 @@ const SelectWrapper = styled.div`
     height: 30px;
     display: flex;
     border: 0.5px solid black;
-    border-radius: 15px;
+    border-radius: 5px;
     margin: 50px 200px 0 200px;
     padding: 0;
     justify-content: center;
@@ -74,7 +75,7 @@ const OptionWrapper = styled.div`
     width: 130px;
     padding: 0;
     border: 0.5px solid black;
-    border-radius: 15px;
+    border-radius: 5px;
     position: absolute;
     top: -1px;
     z-index: 100; 
@@ -107,7 +108,7 @@ const Content = styled.div`
     flex-direction: column;
     margin: 0;
     padding: 0;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
     &:hover{
         box-shadow: 0px 4px 8px #e9a6b1, 0px 6px 20px #ea8e9d;
@@ -118,8 +119,8 @@ const Img = styled.img`
     object-fit: cover;
     width: 100%;
     height: auto;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 `;
 
 const Name = styled.div`
@@ -128,6 +129,7 @@ const Name = styled.div`
     padding: 0 20px;
     font: bold 18px 'arial';
     margin-top: 5px;
+    color: #e13955;
 `;
 
 const Theme = styled.p`
@@ -149,7 +151,7 @@ const AppendWrapper = styled.div`
     align-items: center;
     margin: 0;
     padding: 0;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(20%);
     &:hover{
@@ -188,10 +190,10 @@ const Mybest = () => {
     // 샘플 데이터 (theme 값을 포함)
     // 백엔드에서 가져오면 자동으로 등록됨
     const contentData = [
-        { name: "기사식당", theme: "한식", like: 3, img: img },
-        { name: "중식당", theme: "중식", like: 1, img: img },
-        { name: "일식집", theme: "일식", like: 5, img: img },
-        { name: "한식당", theme: "한식", like: 1, img: img },
+        { storeNm: "기사식당", mainMenu: "한식", like: 3, img: mainImgUrl },
+        { storeNm: "중식당", mainMenu: "중식", like: 1, img: mainImgUrl },
+        { storeNm: "일식집", mainMenu: "일식", like: 5, img: mainImgUrl },
+        { storeNm: "한식당", mainMenu: "한식", like: 1, img: mainImgUrl },
     ];
 
     // 선택한 옵션에 따라 필터링된 데이터를 반환 (전체 선택 시 모두 표시)
@@ -223,8 +225,8 @@ const Mybest = () => {
                     {filteredContent.map((content, index) => (
                         <Content key={index}>
                             <Img src={content.img} />
-                            <Name>{content.name}</Name>
-                            <Theme>{content.theme}</Theme>
+                            <Name>{content.storeNm}</Name>
+                            <Theme>{content.mainMenu}</Theme>
                             <Like>좋아요 : {content.like}</Like>
                         </Content>
                     ))}

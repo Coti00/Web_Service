@@ -9,6 +9,7 @@ import Mypage from '../pages/Mypage';
 import Mybest from '../pages/Mybest';
 import Rankingpage from '../pages/Rankingpage';
 
+
 const AppRoutes = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 

@@ -3,11 +3,13 @@ import styled,{ThemeProvider} from "styled-components";
 import { lightTheme,darkTheme } from "../theme/theme";
 import { useNavigate } from "react-router-dom";
 import Mode from "../components/Mode";
+import backgroundimg from '../img/background.png';
 
 const LoginWrapper = styled.div`
     width: 100%;
     height: 100vh;
-    background: ${(props) => props.theme.background};
+    background: url(${backgroundimg}) no-repeat center center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,22 +17,31 @@ const LoginWrapper = styled.div`
 `
 
 const LoginForm = styled.form`
-    width: 700px;
-    height: 500px;
+    width: 450px;
+    height: auto;
     padding: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    border-radius: 15px;
+    margin: auto;
+    border-radius: 5px;
     background: white;
+    /* backdrop-filter: blur(10px); */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
 `
 
 const Title = styled.p`
     text-align: center;
     font: bold 40px 'arial';
-    margin: 50px auto;
+    margin-inline: auto;
+    margin-top: 50px;
+    margin-bottom: 5px;
     padding: 0;
-    color: black;
+    color: #e13955;
+`
+const Subtitle = styled.p`
+    text-align: center;
+    font: bold 13px 'arial';
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
 `
 
 const NameWrapper = styled.div`
@@ -44,9 +55,10 @@ const NameWrapper = styled.div`
 const Name = styled.p`
     margin: 0;
     padding: 0;
-    width: 400px;
+    width: 300px;
     padding-left: 10px;
     font: bold 14px 'arial';
+    color: #e13955;
 `
 
 const InputWrapper = styled.div`
@@ -60,17 +72,16 @@ const InputWrapper = styled.div`
 
 const Input =styled.input`
     border: none;
-    width: 400px;
+    width: 275px;
     height: 40px;
-    border-radius: 15px;
+    border-radius: 5px;
+    border: 2px solid #e13955;
     margin: 0;
     padding: 0;
     padding-left: 20px;
     font: 500 15px 'arial';
-    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.15), inset 3px 3px 15px rgba(0, 0, 0, 0.15);
     &:focus {
-    border: none; 
-    outline: none; 
+        outline: none; 
     }
 `
 
@@ -86,17 +97,16 @@ const ButtonWrapper = styled.div`
 const Button = styled.button`  
     padding: 0;
     margin: 0;
-    width: 150px;
+    width: 300px;
     height: 40px;
-    border-radius: 15px;
+    border-radius: 5px;
     border: none;
     font: bold 17px 'arial';
     color: white;
-    background: ${(props) => (props.isActive ? 'gray' : '#363535')};
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
+    background:#e13955;
     &:hover{
-        color: ${(props) => (props.isActive ? "white" : "#c5c1c1")};
-        cursor: ${(props) => (props.isActive ? "not-allowed" : "pointer")};
+        background:#c5c1c1;
+        cursor: pointer;
     }
 `
 
@@ -111,6 +121,18 @@ const JoinButton = styled.p`
         color: gray;
         cursor: pointer;
     }
+`
+
+const SocialLoginWrapper = styled.div`
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+`
+
+const SocialLoginButton = styled.div`
+    margin: 10px 20px;
+    padding: 0;
 `
 
 const Login = ({isDarkMode, themeClick}) => {
@@ -142,9 +164,10 @@ const Login = ({isDarkMode, themeClick}) => {
 
     return(
         <LoginWrapper theme = {isDarkMode ? darkTheme : lightTheme}>
-            <Mode themeClick={themeClick} isDarkMode={isDarkMode}/>
+            {/* <Mode themeClick={themeClick} isDarkMode={isDarkMode}/> */}
             <LoginForm onSubmit={handleSubmit}>
-                <Title>로그인</Title>
+                <Title>전맛알</Title>
+                <Subtitle>전주 맛집을 알려드립니다!</Subtitle>
                 <NameWrapper>
                     <Name>이메일</Name>
                 </NameWrapper>
@@ -158,9 +181,14 @@ const Login = ({isDarkMode, themeClick}) => {
                     <Input type="password" placeholder="비밀번호를 입력해주세요" value={pass} onChange={(e) => setpass(e.target.value)}/>
                 </InputWrapper>
                 <ButtonWrapper>
-                    <Button type="submit" isActive = {!loginactive}>로그인</Button>
+                    <Button type="submit">로그인</Button>
                 </ButtonWrapper>
                 <JoinButton onClick={onClick}>회원가입</JoinButton>
+                <SocialLoginWrapper>
+                    <SocialLoginButton>구글</SocialLoginButton>
+                    <SocialLoginButton>카카오</SocialLoginButton>
+                </SocialLoginWrapper>
+                <p style={{textAlign:'center', font:'500 13px arial'}}>소셜계정을 통해 간편하게 로그인하세요!</p>
             </LoginForm>
         </LoginWrapper>
     );

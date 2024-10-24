@@ -10,6 +10,7 @@ const Container = styled.div`
 const Title = styled.p`
     text-align: center;
     font: bold 50px 'arial';
+    color: #e13955;
 `
 
 const MainWrapper = styled.div`
@@ -19,7 +20,7 @@ const MainWrapper = styled.div`
     flex-direction: column;
     margin: 0 200px;
     padding: 0;
-    border-radius: 15px;
+    border-radius: 5px;
 `
 
 const MenuWrapper = styled.ul`
@@ -36,9 +37,9 @@ const MenuName = styled.li`
     font: bold 20px 'arial';
     margin: 10px 0;
     padding: 0;
-    border-bottom: 2px solid ${({ isSelected }) => (isSelected ? 'pink' : 'transparent')}; 
+    border-bottom: 2px solid ${({ isSelected }) => (isSelected ? '#e13955' : 'transparent')}; 
     &:hover{
-        border-bottom: 2px solid pink;
+        border-bottom: 2px solid #e13955;
     }
 `
 
@@ -57,7 +58,7 @@ const Rankingpage = () => {
         <>
             <Menu/>
             <Container>
-                <Title>테마별 랭킹 TOP 10</Title>
+                <Title>테마별 랭킹</Title>
                 <MainWrapper>
                     <MenuWrapper>
                         <MenuName isSelected = {selectedMenu === 0} onClick={() => handleClick(0)}>한 식</MenuName>
