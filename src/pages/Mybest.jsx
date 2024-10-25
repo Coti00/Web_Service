@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Menu from '../components/Menu.jsx';
 import { GiKnifeFork } from "react-icons/gi";
 import { FaCaretDown } from "react-icons/fa";
 import { FiPlusCircle } from "react-icons/fi";
-import mainImgUrl from '../img/test.png';
+import mainImgUrl from '../img/food.png';
 
 const Container = styled.div`
     margin: 0 200px;
@@ -118,7 +119,7 @@ const Content = styled.div`
 const Img = styled.img`
     object-fit: cover;
     width: 100%;
-    height: auto;
+    height: 150px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 `;
@@ -177,6 +178,11 @@ const AppendContent = styled.p`
 const Mybest = () => {
     const [select, setSelect] = useState(false);
     const [selectedOption, setSelectedOption] = useState("전체");
+    const InfoNavigate = useNavigate();
+
+    const onClick = () => {
+        InfoNavigate('/explain');
+    }
 
     const selectClick = () => {
         setSelect(!select); 
@@ -190,7 +196,7 @@ const Mybest = () => {
     // 샘플 데이터 (theme 값을 포함)
     // 백엔드에서 가져오면 자동으로 등록됨
     const contentData = [
-        { storeNm: "기사식당", mainMenu: "한식", like: 3, img: mainImgUrl },
+        { storeNm: "수라온", mainMenu: "한식", like: 3, img: mainImgUrl },
         { storeNm: "중식당", mainMenu: "중식", like: 1, img: mainImgUrl },
         { storeNm: "일식집", mainMenu: "일식", like: 5, img: mainImgUrl },
         { storeNm: "한식당", mainMenu: "한식", like: 1, img: mainImgUrl },
@@ -223,7 +229,7 @@ const Mybest = () => {
                 </SelectWrapper>
                 <ContentWrapper>
                     {filteredContent.map((content, index) => (
-                        <Content key={index}>
+                        <Content key={index} onClick={onClick}>
                             <Img src={content.img} />
                             <Name>{content.storeNm}</Name>
                             <Theme>{content.mainMenu}</Theme>

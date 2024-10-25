@@ -8,7 +8,7 @@ import Join from '../pages/Join';
 import Mypage from '../pages/Mypage';
 import Mybest from '../pages/Mybest';
 import Rankingpage from '../pages/Rankingpage';
-
+import Explain from '../pages/Explain';
 
 const AppRoutes = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -26,7 +26,7 @@ const AppRoutes = () => {
                 <Route path='mypage' element={<Mypage  isDarkMode={isDarkMode} themeClick = {themeClick}/>}/>
                 <Route path='mybest' element={<Mybest  isDarkMode={isDarkMode} themeClick = {themeClick}/>}/>
                 <Route path='ranking' element={<Rankingpage isDarkMode={isDarkMode} themeClick = {themeClick}/>}/>
-
+                <Route path='explain' element={<Explain/>}/>
             </Routes>
         </ThemeProvider>
     );

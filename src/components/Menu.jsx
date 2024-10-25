@@ -11,6 +11,10 @@ const MenuWrapper = styled.div`
     justify-content: space-between;
     margin: 0;
     padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
 `;
 
 const Logo = styled.div`

@@ -1,10 +1,8 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import img from '../img/gallery.png';
-import { FaCrown } from "react-icons/fa";
-import { FaCaretDown } from "react-icons/fa";
-import { FaCaretUp } from "react-icons/fa";
-
+import img from '../img/food.png';
+import { FaCrown, FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 const Wrapper = styled.div`
     display: flex;
@@ -23,14 +21,14 @@ const Wrapper = styled.div`
         margin-left: 0;
         width: 100%;
     }
-`
+`;
 
 const TitleWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-`
+`;
 
 const Title = styled.p`
     font: bold 15px 'arial';
@@ -38,8 +36,8 @@ const Title = styled.p`
     padding: 0;
     margin-left: 5px;
     margin-bottom: 10px;
-    color: #e13955;
-`
+    color: black;
+`;
 
 const Crown = styled(FaCrown)`
     margin: 0;
@@ -47,7 +45,7 @@ const Crown = styled(FaCrown)`
     margin-right: 5px;
     margin-bottom: 10px;
     color: #f9e75b;
-`
+`;
 
 const Container = styled.div`
     display: flex;
@@ -55,7 +53,7 @@ const Container = styled.div`
     justify-content: space-around;
     align-items: center;
     width: 80%;
-    margin: 0 auto;  /* 가운데 정렬을 위해 자동 마진 */
+    margin: 0 auto;
     padding: 0;
 `;
 
@@ -66,22 +64,25 @@ const ContentWrapper = styled.div`
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.15);
     width: 280px;
     height: auto;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: white;
+    &:hover {
+        cursor: pointer;
+    }
     @media screen and (max-width: 768px) {
-        &:nth-child(2){
+        &:nth-child(2) {
             margin: 0 10px;
         }
     }
 `;
 
-
 const Img = styled.img`
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     width: 100%;
-    height: auto;
-`
+    height: 150px;
+`;
+
 const Name = styled.p`
     font: bold 17px 'arial';
     height: auto;
@@ -92,8 +93,9 @@ const Name = styled.p`
         font-size: 14px;
         height: auto;
     }
-`
-const Categories =styled.p`
+`;
+
+const Categories = styled.p`
     font: 500 13px 'arial';
     margin: 0;
     padding: 0;
@@ -101,32 +103,32 @@ const Categories =styled.p`
     @media screen and (max-width: 768px) {
         font-size: 12px;
     }
-`
+`;
 
 const Down = styled(FaCaretDown)`
-    color: #e13955;
+    color: black;
     width: 20px;
     height: 20px;
     margin: 0;
     padding: 0;
     margin-bottom: 3px;
-`
+`;
 
 const Up = styled(FaCaretUp)`
-    color: #e13955;
+    color: black;
     width: 20px;
     height: 20px;
     margin: 0;
     padding: 0;
     margin-bottom: 3px;
-`
+`;
 
 const P = styled.p`
     margin: 0;
     padding: 0;
     font: bold 13px 'arial';
-    color: #e13955;
-`
+    color: black;
+`;
 
 const ButtonWrapper = styled.div`
     display: flex;
@@ -134,50 +136,66 @@ const ButtonWrapper = styled.div`
     justify-content: center;
     margin-top: 10px;
     height: auto;
-    &:hover{
+    &:hover {
         cursor: pointer;
         color: gray;
-        p, svg{
+        p, svg {
             color: gray;
         }
     }
-`
+`;
 
-// Down을 누르면 Wrapper가 비활성되고 Up아이콘이 나타나도록 수정
-// Ranking 위치를 어떻게 설정해야 하는지 고민하기
-// 메뉴를 누르면 랭킹 없어지도록 해야함
 const Ranking = () => {
     const [view, setview] = useState(true);
+    const InfoNavigate = useNavigate();
 
-    const onClick = () =>{
+    const onClick = () => {
         setview((prevstate) => !prevstate);
     };
 
-    return(
+    const InfoClick = () => {
+        InfoNavigate('/explain');
+    };
+
+    // 3개의 맛집 데이터를 딕셔너리 형태로 작성
+    const restaurantData = [
+        { name: "수라온", category: "한식", imgSrc: img },
+        { name: "청진식당", category: "일식", imgSrc: img },
+        { name: "마포갈비", category: "고기구이", imgSrc: img },
+    ];
+
+    return (
         <Wrapper>
-            {view?<><TitleWrapper>
-                <Crown/>
-                <Title>맛집 랭킹 Top3</Title>
-            </TitleWrapper>
-            <Container>
-                <ContentWrapper>
-                    <Img src = {img}/>
-                    <Name>TEST</Name>
-                    <Categories>간단한 소개</Categories>
-                </ContentWrapper>
-                <ContentWrapper>
-                    <Img src = {img}/>
-                    <Name>TEST</Name>
-                    <Categories>간단한 소개</Categories>
-                </ContentWrapper>
-                <ContentWrapper>
-                    <Img src = {img}/>
-                    <Name>TEST</Name>
-                    <Categories>간단한 소개</Categories>
-                </ContentWrapper>
-            </Container>
-            </>:<></>}
-            {view?<><ButtonWrapper onClick={onClick}><P>눌러서 감추기</P><Down/></ButtonWrapper></>:<><ButtonWrapper onClick={onClick}><P>랭킹 보기</P><Up/></ButtonWrapper></>}
+            {view ? (
+                <>
+                    <TitleWrapper>
+                        <Crown />
+                        <Title>맛집 랭킹 Top3</Title>
+                    </TitleWrapper>
+                    <Container>
+                        {restaurantData.map((restaurant, index) => (
+                            <ContentWrapper key={index} onClick={InfoClick}>
+                                <Img src={restaurant.imgSrc} alt={restaurant.name} />
+                                <Name>{restaurant.name}</Name>
+                                <Categories>{restaurant.category}</Categories>
+                            </ContentWrapper>
+                        ))}
+                    </Container>
+                </>
+            ) : (
+                <></>
+            )}
+            {view ? (
+                <ButtonWrapper onClick={onClick}>
+                    <P>눌러서 감추기</P>
+                    <Down />
+                </ButtonWrapper>
+            ) : (
+                <ButtonWrapper onClick={onClick}>
+                    <P>랭킹 보기</P>
+                    <Up />
+                </ButtonWrapper>
+            )}
         </Wrapper>
     );
 };
