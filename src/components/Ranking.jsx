@@ -159,7 +159,7 @@ const Ranking = () => {
 
     // 3개의 맛집 데이터를 딕셔너리 형태로 작성
     const restaurantData = [
-        { name: "수라온", category: "한식", imgSrc: img },
+        { name: "수라온", category: "일식", imgSrc: img },
         { name: "청진식당", category: "일식", imgSrc: img },
         { name: "마포갈비", category: "고기구이", imgSrc: img },
     ];
